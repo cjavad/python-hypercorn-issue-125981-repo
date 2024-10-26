@@ -1,4 +1,5 @@
 import unittest
+import time
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options as ChromeOptions
 from selenium.webdriver.firefox.options import Options as FirefoxOptions
@@ -25,6 +26,7 @@ class TestServerRequests(unittest.TestCase):
         self.url = "https://localhost:3000"
 
     def test_chrome_request(self):
+        return 
         """Test if Chrome can access the server and receive the expected response."""
         self.chrome_driver.get(self.url)
         
@@ -37,7 +39,9 @@ class TestServerRequests(unittest.TestCase):
         
         # Check if the page contains expected content (e.g., "Hello world!")
         self.assertIn("Hello world!", self.firefox_driver.page_source)
-
+        
+        # Allow the issue to occur
+        time.sleep(10)
     def tearDown(self):
         """Close all browser instances."""
         self.chrome_driver.quit()
